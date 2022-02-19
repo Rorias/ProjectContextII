@@ -3,6 +3,21 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using Random = System.Random;
 
+public static class Vector2Extension
+{
+
+    public static Vector2 Rotate(this Vector2 v, float degrees)
+    {
+        float sin = Mathf.Sin(degrees * Mathf.Deg2Rad);
+        float cos = Mathf.Cos(degrees * Mathf.Deg2Rad);
+
+        float tx = v.x;
+        float ty = v.y;
+        v.x = (cos * tx) - (sin * ty);
+        v.y = (sin * tx) + (cos * ty);
+        return v;
+    }
+}
 public class ThirdPersonMovement : MonoBehaviour
 {
 
@@ -134,6 +149,11 @@ public class ThirdPersonMovement : MonoBehaviour
         playerAngle = Vector2.SignedAngle(mousePos, new Vector2(-1, 1));
         //Debug.Log(playerAngle);
         transform.rotation = Quaternion.Euler(0f, playerAngle, 0f);
+        //Vector2 dir = direction;
+        //Vector2 AnimDir = Vector2.Angle(dir, mousePos);
+        Vector2 dir2 = new Vector2(direction.x, direction.z).Rotate(playerAngle-45f);
+        anim.SetFloat("xSpeed", dir2.x*direction.magnitude);
+        anim.SetFloat("ySpeed", dir2.y*direction.magnitude);
     }
 
     private void BasicMovement()
