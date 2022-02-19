@@ -148,7 +148,7 @@ public class ThirdPersonMovement : MonoBehaviour
         Vector2 mousePos = new Vector2((Input.mousePosition.x / Screen.width) - 0.5f, (Input.mousePosition.y / Screen.height) - 0.5f);
         playerAngle = Vector2.SignedAngle(mousePos, new Vector2(-1, 1));
         //Debug.Log(playerAngle);
-        transform.rotation = Quaternion.Euler(0f, playerAngle, 0f);
+        transform.GetChild(0).rotation = Quaternion.Euler(0f, playerAngle, 0f);
         //Vector2 dir = direction;
         //Vector2 AnimDir = Vector2.Angle(dir, mousePos);
         Vector2 dir2 = new Vector2(direction.x, direction.z).Rotate(playerAngle-45f);
