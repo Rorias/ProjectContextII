@@ -21,8 +21,18 @@ public class GunManager : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             anim.SetTrigger("Shoot");
-            testParticles.Stop();
-            testParticles.Play();
         }
+    }
+
+    public void BatHit()
+    {
+        Debug.Log("Bat Hit!");
+    }
+
+    public void ShotgunShoot()
+    {
+        Debug.Log("Bang!");
+        testParticles.Stop();
+        testParticles.Play();
     }
 }
