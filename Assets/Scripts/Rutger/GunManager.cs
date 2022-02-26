@@ -27,6 +27,14 @@ public class GunManager : MonoBehaviour
     public void BatHit()
     {
         Debug.Log("Bat Hit!");
+        //var batpos
+        foreach(Collider col in Physics.OverlapSphere(transform.position, .5f))
+        {
+            /*if(col.GetComponent<Health>() != null)
+            {
+                col.GetComponent<Health>().damage(10f);
+            }*/
+        }
     }
 
     public void ShotgunShoot()

@@ -23,6 +23,7 @@ public class CutsceneTrigger : MonoBehaviour
     {
         if(other.CompareTag("Player"))
             cm.PlayClip(clip);
+        EventManager.TriggerEvent("DialogOpen");
         gameObject.SetActive(false);
     }
 }
