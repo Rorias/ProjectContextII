@@ -35,4 +35,14 @@ public class DialogManager : MonoBehaviour
             prefab.GetComponent<DialogTimer>().follow = NPCMap[int.Parse(split[0])];
         }
     }
+
+    public void FreezePlayer()
+    {
+        FindObjectOfType<ThirdPersonMovement>().Freeze();
+    }
+
+    public void UnFreezePlayer()
+    {
+        FindObjectOfType<ThirdPersonMovement>().UnFreeze();
+    }
 }

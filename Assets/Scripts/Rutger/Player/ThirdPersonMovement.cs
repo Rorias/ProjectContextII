@@ -101,6 +101,8 @@ public class ThirdPersonMovement : MonoBehaviour
 
     private float playerAngle = 0;
 
+    bool frozen = false;
+
     //public float interactRange;
     //[SerializeField]
     //private IInteractable iinteractableInRange;
@@ -126,16 +128,24 @@ public class ThirdPersonMovement : MonoBehaviour
         PlayerPrefs.SetString("InteractKey", "E");
     }
 
-    private void Update()
+    public void Freeze()
     {
+        frozen = true;
+    }
 
+    public void UnFreeze()
+    {
+        frozen = false;
     }
 
     private void FixedUpdate()
     {
-        Gravity();
+        if (!frozen)
+        {
+            Gravity();
+            BasicMovement();
+        }
         MouseRot();
-        BasicMovement();
     }
 
     void HostLeft()
@@ -152,8 +162,16 @@ public class ThirdPersonMovement : MonoBehaviour
         //Vector2 dir = direction;
         //Vector2 AnimDir = Vector2.Angle(dir, mousePos);
         Vector2 dir2 = new Vector2(direction.x, direction.z).Rotate(playerAngle-45f);
-        anim.SetFloat("xSpeed", dir2.x*direction.magnitude);
-        anim.SetFloat("ySpeed", dir2.y*direction.magnitude);
+        if (!frozen)
+        {
+            anim.SetFloat("xSpeed", dir2.x * direction.magnitude);
+            anim.SetFloat("ySpeed", dir2.y * direction.magnitude);
+        }
+        else
+        {
+            anim.SetFloat("xSpeed", 0);
+            anim.SetFloat("ySpeed", 0);
+        }
     }
 
     private void BasicMovement()

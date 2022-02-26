@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SplashWater : MonoBehaviour
+public class Notification : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -16,13 +16,8 @@ public class SplashWater : MonoBehaviour
         
     }
 
-    public void Splash()
+    public void DestroyNotification()
     {
-        
-    }
-
-    private void OnTriggerStay(Collider other)
-    {
-        
+        Destroy(gameObject);
     }
 }

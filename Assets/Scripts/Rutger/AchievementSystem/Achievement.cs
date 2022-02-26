@@ -32,5 +32,9 @@ public class Achievement: MonoBehaviour
     {
         amount += 1;
         PlayerPrefs.SetInt("Achievement_" + eventName, amount);
+        if(amount >= needed)
+        {
+            NotificationManager.ShowNotification("Achievement "+publicName+" completed!");
+        }
     }
 }
