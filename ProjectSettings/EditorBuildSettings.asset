@@ -6,7 +6,10 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/_Scenes/LarsScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: Assets/_Scenes/MainMenu.unity
+    guid: 469bc73bb391cf64cbd80c61f6f86f0b
+  - enabled: 1
+    path: Assets/_Scenes/RutScene.unity
+    guid: 91c3c6dca487a7b4386beb762fa3d780
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 632780fa39edd284a999407f58f7317c, type: 2}

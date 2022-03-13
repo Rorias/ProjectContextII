@@ -1,9 +1,7 @@
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
 using UnityEngine;
-using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
@@ -15,6 +13,8 @@ public class MainMenu : MonoBehaviour
     private void Start()
     {
         menus = FindObjectsOfType<MainMenuItem>().ToList();
+
+        Debug.Log(menus.Count + " menus found");
         menus.Remove(mainMenu);
         ResetMenu();
     }
