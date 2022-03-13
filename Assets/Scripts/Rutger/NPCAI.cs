@@ -28,24 +28,27 @@ public class NPCAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if ((transform.position - target.transform.position).magnitude < 1.5f)
+        if (target != null)
         {
-            agent.speed = 0;
-            moving = false;
-            anim.SetFloat("SpeedY", 0);
-            
-            if (agro)
+            if ((transform.position - target.transform.position).magnitude < 1.5f)
             {
-                transform.LookAt(new Vector3(target.transform.position.x, transform.position.y, target.transform.position.z));
-                anim.SetBool("Attacking", true);
+                agent.speed = 0;
+                moving = false;
+                anim.SetFloat("SpeedY", 0);
+
+                if (agro)
+                {
+                    transform.LookAt(new Vector3(target.transform.position.x, transform.position.y, target.transform.position.z));
+                    anim.SetBool("Attacking", true);
+                }
             }
-        }
-        else
-        {
-            agent.speed = speed;
-            moving = true;
-            anim.SetFloat("SpeedY", .8f);
-            anim.SetBool("Attacking", false);
+            else
+            {
+                agent.speed = speed;
+                moving = true;
+                anim.SetFloat("SpeedY", .8f);
+                anim.SetBool("Attacking", false);
+            }
         }
     }
 

@@ -45,4 +45,28 @@ public class DialogManager : MonoBehaviour
     {
         FindObjectOfType<ThirdPersonMovement>().UnFreeze();
     }
+
+    public void NPCAgro(int id)
+    {
+        foreach(NPC npc in FindObjectsOfType<NPC>())
+        {
+            if(npc.ID == id)
+            {
+                if(npc.gameObject.GetComponent<NPCAI>() != null)
+                {
+                    npc.gameObject.GetComponent<NPCAI>().agro = true;
+                    npc.gameObject.GetComponent<NPCAI>().target = FindObjectOfType<ThirdPersonMovement>().gameObject;
+                }
+            }
+        }
+    }
+
+    public void DogStartFollow()
+    {
+        DogAI dog = FindObjectOfType<DogAI>();
+        if(dog != null)
+        {
+            dog.target = FindObjectOfType<ThirdPersonMovement>().gameObject;
+        }
+    }
 }
