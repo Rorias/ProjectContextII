@@ -5467,7 +5467,7 @@ PrefabInstance:
       objectReference: {fileID: 6027377560600277661}
     - target: {fileID: 3773454529125211718, guid: 7cb8b0507191ce04b8d9aa74fa00c750, type: 3}
       propertyPath: runSpeed
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3773454529125211718, guid: 7cb8b0507191ce04b8d9aa74fa00c750, type: 3}
       propertyPath: airControl
@@ -5483,7 +5483,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3773454529125211718, guid: 7cb8b0507191ce04b8d9aa74fa00c750, type: 3}
       propertyPath: normalSpeed
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3773454529125211718, guid: 7cb8b0507191ce04b8d9aa74fa00c750, type: 3}
       propertyPath: airResistence
