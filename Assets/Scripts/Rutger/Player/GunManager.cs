@@ -5,7 +5,7 @@ using UnityEngine;
 public class GunManager : MonoBehaviour
 {
     public Animator anim;
-    public ParticleSystem testParticles;
+    public ParticleSystem testParticles, axeBlood;
     public GameObject hitpos;
 
     // Start is called before the first frame update
@@ -35,6 +35,8 @@ public class GunManager : MonoBehaviour
             {
                 Debug.Log("Had health");
                 col.GetComponent<Health>().Damage(10);
+                axeBlood.Stop();
+                axeBlood.Play();
             }
         }
     }

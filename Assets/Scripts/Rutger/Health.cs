@@ -5,9 +5,16 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
+    public int startHealth = 20;
+
     int value = 20;
 
     public Action deadCallbacks;
+
+    private void Start()
+    {
+        value = startHealth;
+    }
 
     public bool dead()
     {
