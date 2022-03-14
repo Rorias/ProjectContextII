@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class InventoryItem : MonoBehaviour
 {
-    InventoryManager.Items itemType;
+    public InventoryManager.Items itemType;
+    public Sprite inventorySprite;
+    public int activeTab;
 
     // Start is called before the first frame update
     void Start()

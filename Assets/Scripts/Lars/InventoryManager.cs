@@ -9,8 +9,11 @@ public class InventoryManager : MonoBehaviour
 
     public Dictionary<Items, InventoryItemData> inventoryItems = new Dictionary<Items, InventoryItemData>()
     {
-
+        { Items.cannedFood, new InventoryItemData(){ currStackCount = 0, maxStackCount = 1 } }
     };
+
+    private int activeTab = 0;
+    private int maxInvItemCount = 77;
 
 
     public void AddItemToInventory(Items _item)
@@ -27,14 +30,37 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
-    // Start is called before the first frame update
-    void Start()
+    public void RemoveItemFromInventory(Items _item)
     {
 
     }
 
-    // Update is called once per frame
-    void Update()
+    public void UseItemFromInventory(Items _item)
+    {
+
+    }
+
+    public void OpenItemOptionsMenuFor(Items _item)
+    {
+
+    }
+
+    public void InspectItemInInventory(Items _item)
+    {
+
+    }
+
+    public void SetActiveInventoryTab(int _tab)
+    {
+
+    }
+
+    public void OpenInventory()
+    {
+
+    }
+
+    public void CloseInventory()
     {
 
     }

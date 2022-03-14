@@ -23,7 +23,7 @@ public class ConsoleGUIDebug : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.F3))
         {
             active = !active;
         }
