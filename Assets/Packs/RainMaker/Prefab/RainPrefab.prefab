@@ -4837,7 +4837,7 @@ GameObject:
   - component: {fileID: 481474}
   - component: {fileID: 19836512}
   - component: {fileID: 19928108}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RainMistParticleSystem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9521,11 +9521,10 @@ ParticleSystemRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
   m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 2
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 26903820d8bdf4145af868b7b12d0e18, type: 2}
-  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -9543,8 +9542,8 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1102671637
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_RenderMode: 0
   m_SortMode: 0
@@ -9581,6 +9580,7 @@ GameObject:
   m_Component:
   - component: {fileID: 470886}
   - component: {fileID: 11437536}
+  - component: {fileID: 1832188140}
   m_Layer: 0
   m_Name: RainPrefab
   m_TagString: Untagged
@@ -9624,7 +9624,7 @@ MonoBehaviour:
   RainSoundMedium: {fileID: 8300000, guid: 3359e9d10af08ca46ae396298dbd1ed9, type: 3}
   RainSoundHeavy: {fileID: 8300000, guid: db1471092e49b7445bfbd374a17ea61a, type: 3}
   RainSoundAudioMixer: {fileID: 0}
-  RainIntensity: 1
+  RainIntensity: 0
   RainFallParticleSystem: {fileID: 19831730}
   RainExplosionParticleSystem: {fileID: 19824492}
   RainMistParticleSystem: {fileID: 19836512}
@@ -9638,6 +9638,23 @@ MonoBehaviour:
   RainHeight: 25
   RainForwardOffset: -7
   RainMistHeight: 3
+--- !u!114 &1832188140
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 160098}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b526ff7ed6fe1d947bf7777c8144b085, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rs: {fileID: 11437536}
+  sun: {fileID: 0}
+  time: 13
+  perl: 0
+  pos: {x: 0, y: 0}
 --- !u!1 &177510
 GameObject:
   m_ObjectHideFlags: 0
@@ -14347,7 +14364,6 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 5a5cdbef1fec3ec4ab759228c8234ed5, type: 2}
-  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

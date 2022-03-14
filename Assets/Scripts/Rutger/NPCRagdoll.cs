@@ -2,16 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Health))]
+//[RequireComponent(typeof(Health))]
 public class NPCRagdoll : MonoBehaviour
 {
-    Health health;
+    public Health health;
     Collider col;
 
     // Start is called before the first frame update
     void Start()
     {
-        health = GetComponent<Health>();
+        //health = GetComponent<Health>();
         health.deadCallbacks += Ragdoll;
 
         col = GetComponent<Collider>();
@@ -20,6 +20,7 @@ public class NPCRagdoll : MonoBehaviour
         {
             rb.isKinematic = true;
         }
+
     }
 
     // Update is called once per frame

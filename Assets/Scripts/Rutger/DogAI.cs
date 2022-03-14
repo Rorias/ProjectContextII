@@ -21,17 +21,20 @@ public class DogAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if((transform.position - target.transform.position).magnitude < 2f)
+        if (target != null)
         {
-            agent.speed = 0;
-            moving = false;
-            anim.SetFloat("SpeedY", 0);
-        }
-        else
-        {
-            agent.speed = speed;
-            moving = true;
-            anim.SetFloat("SpeedY", .8f);
+            if ((transform.position - target.transform.position).magnitude < 2f)
+            {
+                agent.speed = 0;
+                moving = false;
+                anim.SetFloat("SpeedY", 0);
+            }
+            else
+            {
+                agent.speed = speed;
+                moving = true;
+                anim.SetFloat("SpeedY", .8f);
+            }
         }
     }
 

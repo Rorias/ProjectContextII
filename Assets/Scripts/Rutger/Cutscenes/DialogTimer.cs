@@ -26,6 +26,6 @@ public class DialogTimer : MonoBehaviour
 
     private void FixedUpdate()
     {
-        GetComponent<RectTransform>().anchoredPosition = Camera.allCameras[0].WorldToScreenPoint(follow.transform.position + (Vector3.up*2f));
+        GetComponent<RectTransform>().anchoredPosition = Camera.allCameras[0].WorldToScreenPoint(follow.transform.position + (Vector3.up*3f));
     }
 }
