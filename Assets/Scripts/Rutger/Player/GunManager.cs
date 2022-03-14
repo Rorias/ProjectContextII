@@ -5,7 +5,9 @@ using UnityEngine;
 public class GunManager : MonoBehaviour
 {
     public Animator anim;
-    public ParticleSystem testParticles;
+    public ParticleSystem testParticles, axeBlood;
+    public GameObject hitpos;
+    public Health health;
 
     // Start is called before the first frame update
     void Start()
@@ -28,12 +30,15 @@ public class GunManager : MonoBehaviour
     {
         Debug.Log("Bat Hit!");
         //var batpos
-        foreach(Collider col in Physics.OverlapSphere(transform.position, .5f))
+        foreach(Collider col in Physics.OverlapSphere(hitpos.transform.position, .5f))
         {
-            /*if(col.GetComponent<Health>() != null)
+            if(col.GetComponent<Health>() != null && col.GetComponent<Health>() != health)
             {
-                col.GetComponent<Health>().damage(10f);
-            }*/
+                Debug.Log("Had health");
+                col.GetComponent<Health>().Damage(10);
+                axeBlood.Stop();
+                axeBlood.Play();
+            }
         }
     }
 

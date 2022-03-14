@@ -44,6 +44,8 @@ public class ThirdPersonMovement : MonoBehaviour
     public AudioClip[] dashSFX;
     public AudioClip[] jumpSFX;
     public AudioClip[] hurtSFX;
+    public Health health;
+    public GameObject deadUI;
 
     [Header("Settings")] 
     public float turnSmoothSpeed = 0.1f;
@@ -126,6 +128,16 @@ public class ThirdPersonMovement : MonoBehaviour
         Cursor.visible = false;
 
         PlayerPrefs.SetString("InteractKey", "E");
+
+        health.deadCallbacks += Die;
+    }
+
+    void Die()
+    {
+        anim.SetBool("Dead", true);
+        this.enabled = false;
+        Time.timeScale = 0.3f;
+        deadUI.SetActive(true);
     }
 
     public void Freeze()
