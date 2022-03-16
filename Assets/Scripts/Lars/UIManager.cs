@@ -22,6 +22,7 @@ public class UIManager : MonoBehaviour
 
     private float playerHungerTimer = 300f;
     private float playerMaxHungerTime = 300f;
+    private float lastHungerTimer = 300f;
 
     private float doggoHungerTimer = 180f;
     private float doggoMaxHungerTime = 180f;
@@ -52,6 +53,18 @@ public class UIManager : MonoBehaviour
             else
             {
                 Pause();
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            if (invMng.open)
+            {
+                invMng.CloseInventory();
+            }
+            else
+            {
+                invMng.OpenInventory();
             }
         }
     }
@@ -128,6 +141,8 @@ public class UIManager : MonoBehaviour
         {
             moodleMng.RemoveMoodle(MoodleManager.Moodles.peckish);
         }
+
+        lastHungerTimer = playerHungerTimer;
 
         Debug.Log(doggoHungerTimer);
 

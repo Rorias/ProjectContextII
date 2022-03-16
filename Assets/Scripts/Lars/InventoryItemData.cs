@@ -7,4 +7,5 @@ public class InventoryItemData
 {
     public int maxStackCount;
     public int currStackCount;
+    public int currCount;
 }
