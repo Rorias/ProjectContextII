@@ -12,6 +12,7 @@ public class InventoryItem : MonoBehaviour
     public Sprite inventorySprite;
     public int activeTab;
     public bool inspectable;
+    public bool doggoable;
 
     public TextMeshProUGUI text;
     public string pickupText;
@@ -21,7 +22,7 @@ public class InventoryItem : MonoBehaviour
 
     private void Awake()
     {
-        GameObject.Find("Inventory").GetComponent<InventoryManager>();
+       im = GameObject.Find("Inventory").GetComponent<InventoryManager>();
     }
 
     private void Update()
@@ -39,7 +40,7 @@ public class InventoryItem : MonoBehaviour
         if (_coll.CompareTag("Player"))
         {
             inRange = true;
-            text.text = pickupText;
+            //text.text = pickupText;
         }
     }
 
@@ -48,7 +49,7 @@ public class InventoryItem : MonoBehaviour
         if (_coll.CompareTag("Player"))
         {
             inRange = false;
-            text.text = string.Empty;
+            //text.text = string.Empty;
         }
     }
 }

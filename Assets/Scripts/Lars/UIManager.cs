@@ -17,14 +17,13 @@ public class UIManager : MonoBehaviour
     public Image doggoHealth;
 
     //move later? maybe not
-    private float playerWaterTimer = 120f;
+    [HideInInspector] public float playerWaterTimer = 120f;
     private float playerMaxWaterTime = 120f;
 
-    private float playerHungerTimer = 300f;
+    [HideInInspector] public float playerHungerTimer = 300f;
     private float playerMaxHungerTime = 300f;
-    private float lastHungerTimer = 300f;
 
-    private float doggoHungerTimer = 180f;
+    [HideInInspector] public float doggoHungerTimer = 180f;
     private float doggoMaxHungerTime = 180f;
 
     private bool paused = false;
@@ -56,7 +55,7 @@ public class UIManager : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.I))
         {
             if (invMng.open)
             {
@@ -103,6 +102,21 @@ public class UIManager : MonoBehaviour
         pauseMenu.SetActive(true);
     }
 
+    public void DecreaseHunger(int _amount)
+    {
+        playerHungerTimer += _amount;
+    }
+
+    public void DecreaseDoggoHunger(int _amount)
+    {
+        doggoHungerTimer += _amount;
+    }
+
+    public void DecreaseThirst(int _amount)
+    {
+        playerWaterTimer += _amount;
+    }
+
     public void UpdateUI()
     {
         playerWater.fillAmount = playerWaterTimer / playerMaxWaterTime;
@@ -121,19 +135,19 @@ public class UIManager : MonoBehaviour
         {
             moodleMng.SetMoodle(MoodleManager.Moodles.dying);
         }
-        else if (playerHungerTimer < 180)
+        else if (playerHungerTimer < 60)
         {
             moodleMng.SetMoodle(MoodleManager.Moodles.starved);
         }
-        else if (playerHungerTimer < 210)
+        else if (playerHungerTimer < 120)
         {
             moodleMng.SetMoodle(MoodleManager.Moodles.starving);
         }
-        else if (playerHungerTimer < 240)
+        else if (playerHungerTimer < 180)
         {
             moodleMng.SetMoodle(MoodleManager.Moodles.hungry);
         }
-        else if (playerHungerTimer < 270)
+        else if (playerHungerTimer < 240)
         {
             moodleMng.CreateMoodle(MoodleManager.Moodles.peckish);
         }
@@ -141,10 +155,6 @@ public class UIManager : MonoBehaviour
         {
             moodleMng.RemoveMoodle(MoodleManager.Moodles.peckish);
         }
-
-        lastHungerTimer = playerHungerTimer;
-
-        Debug.Log(doggoHungerTimer);
 
         if (doggoHungerTimer < 0)
         {

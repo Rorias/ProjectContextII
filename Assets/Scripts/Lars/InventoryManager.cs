@@ -6,15 +6,9 @@ using UnityEngine.UI;
 
 public class InventoryManager : MonoBehaviour
 {
-    public enum Items { mcDonaldsFries, newspaperClipping, cannedFood, water };
+    public UIManager uiMng;
 
-    public Dictionary<Items, InventoryItemData> possibleItems = new Dictionary<Items, InventoryItemData>()
-    {
-        { Items.cannedFood, new InventoryItemData(){ currStackCount = 0, maxStackCount = 8, currCount=0 } },
-        { Items.mcDonaldsFries, new InventoryItemData(){ currStackCount = 0, maxStackCount = 4, currCount=0 } },
-        { Items.newspaperClipping, new InventoryItemData(){ currStackCount = 0, maxStackCount = 1, currCount=0 } },
-        { Items.water, new InventoryItemData(){ currStackCount = 0, maxStackCount = 16, currCount=0 } },
-    };
+    public enum Items { mcDonaldsFries, newspaperClipping, cannedFood, water };
 
     public GameObject prefabInvItem;
     public Transform itemHolder;
@@ -26,7 +20,9 @@ public class InventoryManager : MonoBehaviour
     private int activeTab = 0;
     private int maxInvItemCount = 77;
 
-    private List<InventoryItem> inventoryItems = new List<InventoryItem>();
+    private InventoryItem selectedItem;
+
+    private List<GameObject> inventoryItems = new List<GameObject>();
 
     private void Awake()
     {
@@ -37,43 +33,71 @@ public class InventoryManager : MonoBehaviour
     {
         if (inventoryItems.Count >= maxInvItemCount) { return; }
 
-        foreach (KeyValuePair<Items, InventoryItemData> item in possibleItems)
+        GameObject invItem = Instantiate(prefabInvItem, itemHolder);
+        invItem.GetComponent<RefInvItem>().refItem = _item;
+        invItem.GetComponent<Image>().sprite = _item.inventorySprite;
+        inventoryItems.Add(invItem);
+    }
+
+    public void RemoveItemFromInventory()
+    {
+        for (int i = 0; i < inventoryItems.Count; i++)
         {
-            if (item.Key == _item.itemType)
+            if (inventoryItems[i].GetComponent<RefInvItem>().refItem == selectedItem)
             {
-                if (item.Value.currStackCount < item.Value.maxStackCount)
-                {
-                    item.Value.currCount++;
-                    item.Value.currStackCount++;
-                }
-                else
-                {
-                    item.Value.currCount++;
-                }
-
-                Instantiate(prefabInvItem, itemHolder);
-                inventoryItems.Add(_item);
-
+                Destroy(inventoryItems[i].GetComponent<RefInvItem>().refItem.gameObject);
+                Destroy(inventoryItems[i]);
+                inventoryItems.Remove(inventoryItems[i]);
                 break;
             }
         }
     }
 
-    public void RemoveItemFromInventory(Items _item)
+    public void UseItemFromInventory()
     {
+        switch (selectedItem.itemType)
+        {
+            case Items.mcDonaldsFries:
+                uiMng.DecreaseHunger(20);
+                break;
+            case Items.cannedFood:
+                uiMng.DecreaseHunger(90);
+                break;
+            case Items.water:
+                uiMng.DecreaseThirst(120);
+                break;
+            default:
+                break;
+        }
 
+        RemoveItemFromInventory();
+        CloseItemOptionsMenu();
     }
 
-    public void UseItemFromInventory(Items _item)
+    public void UseItemOnDoggoFromInventory()
     {
+        switch (selectedItem.itemType)
+        {
+            case Items.mcDonaldsFries:
+                uiMng.DecreaseDoggoHunger(20);
+                break;
+            case Items.cannedFood:
+                uiMng.DecreaseDoggoHunger(90);
+                break;
+            default:
+                break;
+        }
 
+        RemoveItemFromInventory();
+        CloseItemOptionsMenu();
     }
 
     public void OpenItemOptionsMenuFor(InventoryItem _item)
     {
         itemOptionMenu.SetActive(true);
+        selectedItem = _item;
 
-        if (!_item.inspectable)
+        if (!_item.doggoable)
         {
             itemOptionMenu.transform.GetChild(1).GetComponent<Button>().interactable = false;
         }
@@ -81,14 +105,24 @@ public class InventoryManager : MonoBehaviour
         {
             itemOptionMenu.transform.GetChild(1).GetComponent<Button>().interactable = true;
         }
+
+        if (!_item.inspectable)
+        {
+            itemOptionMenu.transform.GetChild(2).GetComponent<Button>().interactable = false;
+        }
+        else
+        {
+            itemOptionMenu.transform.GetChild(2).GetComponent<Button>().interactable = true;
+        }
     }
 
     public void CloseItemOptionsMenu()
     {
         itemOptionMenu.SetActive(false);
+        selectedItem = null;
     }
 
-    public void InspectItemInInventory(Items _item)
+    public void InspectItemInInventory()
     {
 
     }
