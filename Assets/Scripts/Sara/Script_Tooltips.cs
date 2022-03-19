@@ -4,27 +4,27 @@ using UnityEngine;
 using UnityEngine.UI;
 public class Script_Tooltips : MonoBehaviour
 {
+    public GameObject target;
+    public TMPro.TextMeshProUGUI textObj;
 
-    public BoxCollider collider;
-   public GameObject tooltip;
-    
+    public Camera cam;
     // Start is called before the first frame update
     void Start()
     {
-        tooltip.SetActive(false);
+        foreach(Camera camera in FindObjectsOfType<Camera>())
+        {
+            if (camera.CompareTag("MainCamera")) cam = camera;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        GetComponent<RectTransform>().position = cam.WorldToScreenPoint(target.transform.position);
     }
 
-    void OnTriggerEnter(Collider col) { 
-tooltip.SetActive(true);
-    }
-
-    void OnTriggerExit() { 
-  tooltip.SetActive(false);
+    public void SetText(string text)
+    {
+        textObj.text = text;
     }
 }
