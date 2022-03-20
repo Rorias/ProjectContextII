@@ -30,10 +30,9 @@ public class InventoryItem : MonoBehaviour
         if (inRange && Input.GetKeyDown(KeyCode.E))
         {
             im.AddItemToInventory(this);
-            GetComponent<MeshRenderer>().enabled = false;
-            GetComponent<Collider>().enabled = false;
             inRange = false;
             text.text = string.Empty;
+            gameObject.SetActive(false);
         }
     }
 
