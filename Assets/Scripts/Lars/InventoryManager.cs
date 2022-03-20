@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+using TMPro;
+
 public class InventoryManager : MonoBehaviour
 {
     public UIManager uiMng;
@@ -14,6 +16,7 @@ public class InventoryManager : MonoBehaviour
     public Transform itemHolder;
 
     public GameObject itemOptionMenu;
+    public GameObject inspectMenu;
 
     [HideInInspector] public bool open = false;
 
@@ -27,6 +30,7 @@ public class InventoryManager : MonoBehaviour
     private void Awake()
     {
         itemOptionMenu.SetActive(false);
+        inspectMenu.SetActive(false);
     }
 
     public void AddItemToInventory(InventoryItem _item)
@@ -124,7 +128,13 @@ public class InventoryManager : MonoBehaviour
 
     public void InspectItemInInventory()
     {
+        inspectMenu.SetActive(true);
+        inspectMenu.GetComponentInChildren<TextMeshProUGUI>().text = selectedItem.GetComponent<InspectItem>().inspectText;
+    }
 
+    public void CloseInspectMenu()
+    {
+        inspectMenu.SetActive(false);
     }
 
     public void SetActiveInventoryTab(int _tab)

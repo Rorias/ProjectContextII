@@ -14,15 +14,23 @@ public class InventoryItem : MonoBehaviour
     public bool inspectable;
     public bool doggoable;
 
+    //public RectTransform textTransform;
     public TextMeshProUGUI text;
     public string pickupText;
 
 
     private bool inRange = false;
 
+    //private Camera cam;
+
     private void Awake()
     {
-       im = GameObject.Find("Inventory").GetComponent<InventoryManager>();
+        im = GameObject.Find("Inventory").GetComponent<InventoryManager>();
+
+        //foreach (Camera camera in FindObjectsOfType<Camera>())
+        //{
+        //    if (camera.CompareTag("MainCamera")) { cam = camera; }
+        //}
     }
 
     private void Update()
@@ -32,6 +40,8 @@ public class InventoryItem : MonoBehaviour
             im.AddItemToInventory(this);
             GetComponent<MeshRenderer>().enabled = false;
             GetComponent<Collider>().enabled = false;
+            inRange = false;
+            text.text = string.Empty;
         }
     }
 
@@ -40,7 +50,8 @@ public class InventoryItem : MonoBehaviour
         if (_coll.CompareTag("Player"))
         {
             inRange = true;
-            //text.text = pickupText;
+            //textTransform.position = cam.WorldToScreenPoint(transform.position);
+            text.text = pickupText;
         }
     }
 
@@ -49,7 +60,7 @@ public class InventoryItem : MonoBehaviour
         if (_coll.CompareTag("Player"))
         {
             inRange = false;
-            //text.text = string.Empty;
+            text.text = string.Empty;
         }
     }
 }

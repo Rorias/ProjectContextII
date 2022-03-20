@@ -119,16 +119,17 @@ public class UIManager : MonoBehaviour
 
     public void UpdateUI()
     {
+        Debug.Log(playerWater.fillAmount);
         playerWater.fillAmount = playerWaterTimer / playerMaxWaterTime;
 
         if (playerHungerTimer <= 0 || playerWaterTimer <= 0)
         {
-            playerHealth.fillAmount -= 0.01f;
+            playerHealth.fillAmount -= 0.001f;
         }
 
         if (doggoHungerTimer <= 0)
         {
-            doggoHealth.fillAmount -= 0.01f;
+            doggoHealth.fillAmount -= 0.001f;
         }
 
         if (playerHungerTimer < 0)
