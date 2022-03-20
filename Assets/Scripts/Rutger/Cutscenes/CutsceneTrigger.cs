@@ -21,9 +21,11 @@ public class CutsceneTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("Player"))
+        if (other.CompareTag("Player"))
+        {
             cm.PlayClip(clip);
-        EventManager.TriggerEvent("DialogOpen");
-        gameObject.SetActive(false);
+            EventManager.TriggerEvent("DialogOpen");
+            gameObject.SetActive(false);
+        }
     }
 }
