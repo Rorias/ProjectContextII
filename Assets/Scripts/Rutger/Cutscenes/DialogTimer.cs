@@ -10,7 +10,7 @@ public class DialogTimer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        FindObjectOfType<CamFollow>().objToFollow = follow;
+        FindObjectOfType<CamFollow>().NewFollow(follow);
     }
 
     // Update is called once per frame
@@ -19,7 +19,7 @@ public class DialogTimer : MonoBehaviour
         timer -= Time.deltaTime;
         if(timer <= 0)
         {
-            FindObjectOfType<CamFollow>().objToFollow = null;
+            FindObjectOfType<CamFollow>().NewFollow(null);
             Destroy(gameObject);
         }
     }
