@@ -716,6 +716,7 @@ MonoBehaviour:
   playerHealth: {fileID: 8687152339150289948}
   playerWater: {fileID: 8687152338635448255}
   doggoHealth: {fileID: 8687152339389031749}
+  healthHandler: {fileID: 0}
   playerWaterTimer: 120
   playerHungerTimer: 300
   doggoHungerTimer: 180
@@ -6982,10 +6983,10 @@ RectTransform:
   m_Father: {fileID: 8687152340606371300}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 60}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 154, y: -30}
+  m_SizeDelta: {x: 308, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8687152339797799313
 CanvasRenderer:
@@ -7431,10 +7432,10 @@ RectTransform:
   m_Father: {fileID: 8687152340606371300}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 60}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 154, y: -100}
+  m_SizeDelta: {x: 308, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8687152339851145095
 CanvasRenderer:

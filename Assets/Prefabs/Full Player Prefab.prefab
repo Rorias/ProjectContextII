@@ -5296,7 +5296,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0.4509804}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -5857,7 +5857,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49836af3f6c9ae443ba642a8c493a720, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startHealth: 50
+  maxHealth: 50
 --- !u!136 &709269580
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -5888,6 +5888,7 @@ MonoBehaviour:
   testParticles: {fileID: 6027377559991366469}
   axeBlood: {fileID: 6027377559955261917}
   hitpos: {fileID: 1392023575}
+  health: {fileID: 363664888}
 --- !u!114 &709269581
 MonoBehaviour:
   m_ObjectHideFlags: 0

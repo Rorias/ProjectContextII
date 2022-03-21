@@ -16,6 +16,8 @@ public class UIManager : MonoBehaviour
     public Image playerWater;
     public Image doggoHealth;
 
+    public Health healthHandler;
+
     //move later? maybe not
     [HideInInspector] public float playerWaterTimer = 120f;
     private float playerMaxWaterTime = 120f;
@@ -28,6 +30,8 @@ public class UIManager : MonoBehaviour
 
     private bool paused = false;
     private bool hungerUpdated = false;
+
+    private float lostHealth = 0.0f;
 
     private void Start()
     {
@@ -105,6 +109,8 @@ public class UIManager : MonoBehaviour
     public void DecreaseHunger(int _amount)
     {
         playerHungerTimer += _amount;
+        healthHandler.Heal(_amount / 2);
+        lostHealth = 0;
     }
 
     public void DecreaseDoggoHunger(int _amount)
@@ -115,16 +121,17 @@ public class UIManager : MonoBehaviour
     public void DecreaseThirst(int _amount)
     {
         playerWaterTimer += _amount;
+        lostHealth = 0;
     }
 
     public void UpdateUI()
     {
-        Debug.Log(playerWater.fillAmount);
         playerWater.fillAmount = playerWaterTimer / playerMaxWaterTime;
+        playerHealth.fillAmount = ((float)healthHandler.GetValue() / healthHandler.maxHealth) - lostHealth;
 
         if (playerHungerTimer <= 0 || playerWaterTimer <= 0)
         {
-            playerHealth.fillAmount -= 0.001f;
+            lostHealth += 0.001f;
         }
 
         if (doggoHungerTimer <= 0)
