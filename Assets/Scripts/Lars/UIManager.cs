@@ -33,6 +33,8 @@ public class UIManager : MonoBehaviour
 
     private float lostHealth = 0.0f;
 
+    bool dogDead = false;
+
     private void Start()
     {
         invMng.CloseInventory();
@@ -110,7 +112,7 @@ public class UIManager : MonoBehaviour
     {
         playerHungerTimer += _amount;
         healthHandler.Heal(_amount / 2);
-        lostHealth = 0;
+        //lostHealth = 0;
     }
 
     public void DecreaseDoggoHunger(int _amount)
@@ -121,22 +123,28 @@ public class UIManager : MonoBehaviour
     public void DecreaseThirst(int _amount)
     {
         playerWaterTimer += _amount;
-        lostHealth = 0;
+        //lostHealth = 0;
     }
 
     public void UpdateUI()
     {
         playerWater.fillAmount = playerWaterTimer / playerMaxWaterTime;
-        playerHealth.fillAmount = ((float)healthHandler.GetValue() / healthHandler.maxHealth) - lostHealth;
+        playerHealth.fillAmount = ((float)healthHandler.GetValue() / healthHandler.maxHealth);// - lostHealth;
 
         if (playerHungerTimer <= 0 || playerWaterTimer <= 0)
         {
-            lostHealth += 0.001f;
+            //lostHealth += 0.001f;
+            healthHandler.Damage(0.003f);
         }
 
         if (doggoHungerTimer <= 0)
         {
             doggoHealth.fillAmount -= 0.001f;
+            if(doggoHealth.fillAmount <= 0)
+            {
+                Debug.Log("Dogo Dead!");
+                FindObjectOfType<DogAI>().Die();
+            }
         }
 
         if (playerHungerTimer < 0)

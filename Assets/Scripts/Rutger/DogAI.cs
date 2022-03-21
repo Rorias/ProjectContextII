@@ -47,4 +47,10 @@ public class DogAI : MonoBehaviour
             yield return new WaitForSeconds(1);
         }
     }
+
+    public void Die()
+    {
+        agent.enabled = false;
+        anim.SetBool("Dead", true);
+    }
 }
