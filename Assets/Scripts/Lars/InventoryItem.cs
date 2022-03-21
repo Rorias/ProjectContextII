@@ -19,6 +19,8 @@ public class InventoryItem : MonoBehaviour
 
     private bool inRange = false;
 
+    public string AchievementEventCall = "";
+
     private void Awake()
     {
         im = GameObject.Find("Inventory").GetComponent<InventoryManager>();
@@ -32,6 +34,10 @@ public class InventoryItem : MonoBehaviour
             im.AddItemToInventory(this);
             inRange = false;
             text.text = string.Empty;
+            if(AchievementEventCall != "")
+            {
+                EventManager.TriggerEvent(AchievementEventCall);
+            }
             gameObject.SetActive(false);
         }
     }

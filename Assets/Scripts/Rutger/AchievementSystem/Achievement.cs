@@ -36,5 +36,9 @@ public class Achievement: MonoBehaviour
         {
             NotificationManager.ShowNotification("Achievement "+publicName+" completed!");
         }
+        else
+        {
+            NotificationManager.ShowNotification("Achievement " + publicName + " " + amount + "/" + needed);
+        }
     }
 }

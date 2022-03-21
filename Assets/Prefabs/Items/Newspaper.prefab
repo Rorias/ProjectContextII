@@ -115,8 +115,8 @@ MonoBehaviour:
   activeTab: 0
   inspectable: 1
   doggoable: 0
-  text: {fileID: 0}
   pickupText: Grab Newspaper
+  AchievementEventCall: CollectNewspaper
 --- !u!114 &2448920128165024435
 MonoBehaviour:
   m_ObjectHideFlags: 0
