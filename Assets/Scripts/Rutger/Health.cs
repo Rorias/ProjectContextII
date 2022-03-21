@@ -5,15 +5,15 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    public int startHealth = 20;
+    public int maxHealth;
 
-    int value = 20;
+    private int value = 20;
 
     public Action deadCallbacks;
 
     private void Start()
     {
-        value = startHealth;
+        value = maxHealth;
     }
 
     public bool dead()
@@ -29,7 +29,7 @@ public class Health : MonoBehaviour
 
     public void Heal(int value)
     {
-        this.value += value;
+        this.value = Mathf.Min(this.value + value, maxHealth);
     }
 
     public int GetValue()
