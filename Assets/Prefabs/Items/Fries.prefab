@@ -113,5 +113,5 @@ MonoBehaviour:
   activeTab: 0
   inspectable: 0
   doggoable: 1
-  text: {fileID: 0}
-  pickupText: Grab Fries
+  pickupText: Grab Fries (E)
+  AchievementEventCall: 

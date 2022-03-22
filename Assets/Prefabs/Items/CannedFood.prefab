@@ -114,8 +114,8 @@ MonoBehaviour:
   activeTab: 0
   inspectable: 0
   doggoable: 1
-  text: {fileID: 0}
-  pickupText: Grab Canned Food
+  pickupText: Grab Canned Food (E)
+  AchievementEventCall: 
 --- !u!1001 &4510860797981735998
 PrefabInstance:
   m_ObjectHideFlags: 0

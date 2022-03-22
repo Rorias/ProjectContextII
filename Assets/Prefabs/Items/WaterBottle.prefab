@@ -114,8 +114,8 @@ MonoBehaviour:
   activeTab: 0
   inspectable: 0
   doggoable: 1
-  text: {fileID: 0}
-  pickupText: Grab Water Bottle
+  pickupText: Grab Water Bottle (E)
+  AchievementEventCall: 
 --- !u!1001 &6208189025719419513
 PrefabInstance:
   m_ObjectHideFlags: 0

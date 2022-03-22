@@ -420,14 +420,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 363664888, guid: 71c99ec14d9d45941b4a12bd75efa3bf, type: 3}
-      propertyPath: maxHealth
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 709269578, guid: 71c99ec14d9d45941b4a12bd75efa3bf, type: 3}
-      propertyPath: health
-      value: 
-      objectReference: {fileID: 448114739}
     - target: {fileID: 6027377558727974532, guid: 71c99ec14d9d45941b4a12bd75efa3bf, type: 3}
       propertyPath: m_Name
       value: Full Player Prefab
@@ -476,9 +468,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6027377560443005987, guid: 71c99ec14d9d45941b4a12bd75efa3bf, type: 3}
-      propertyPath: m_RaycastTarget
-      value: 0
+    - target: {fileID: 6027377560443005984, guid: 71c99ec14d9d45941b4a12bd75efa3bf, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 6027377560443005984, guid: 71c99ec14d9d45941b4a12bd75efa3bf, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 71c99ec14d9d45941b4a12bd75efa3bf, type: 3}
@@ -541,6 +537,10 @@ PrefabInstance:
       propertyPath: text
       value: 
       objectReference: {fileID: 746366706}
+    - target: {fileID: 452364836585078653, guid: 046cd314ae1b1554ab509eefb0569cf3, type: 3}
+      propertyPath: useable
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 452364836585078653, guid: 046cd314ae1b1554ab509eefb0569cf3, type: 3}
       propertyPath: textTransform
       value: 
@@ -606,6 +606,10 @@ PrefabInstance:
       propertyPath: text
       value: 
       objectReference: {fileID: 746366706}
+    - target: {fileID: 1812837075843018345, guid: 3c7ffa711c8ab3642bf095e3c0d3bf2a, type: 3}
+      propertyPath: useable
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1812837075843018345, guid: 3c7ffa711c8ab3642bf095e3c0d3bf2a, type: 3}
       propertyPath: textTransform
       value: 
@@ -692,6 +696,10 @@ PrefabInstance:
       propertyPath: text
       value: 
       objectReference: {fileID: 746366706}
+    - target: {fileID: 2448920129165522977, guid: 76cca18e576396845bdadc9061af292b, type: 3}
+      propertyPath: useable
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2448920129165522977, guid: 76cca18e576396845bdadc9061af292b, type: 3}
       propertyPath: textTransform
       value: 
@@ -845,18 +853,6 @@ PrefabInstance:
       propertyPath: healthHandler
       value: 
       objectReference: {fileID: 448114739}
-    - target: {fileID: 8687152338767499317, guid: 1d109f254f82b364dafe9af3af3a5a03, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8687152338767499317, guid: 1d109f254f82b364dafe9af3af3a5a03, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8687152338767499317, guid: 1d109f254f82b364dafe9af3af3a5a03, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8687152339797799326, guid: 1d109f254f82b364dafe9af3af3a5a03, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

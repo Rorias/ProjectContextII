@@ -16,6 +16,14 @@ public class InventoryManager : MonoBehaviour
     public Transform itemHolder;
 
     public GameObject itemOptionMenu;
+    //These are hard coded because a reference later down needs to be clear
+    public Button useButton;
+    public Button doggoUseButton;
+    public Button inspectButton;
+    public Button dropButton;
+    public Button cancelButton;
+
+
     public GameObject inspectMenu;
 
     [HideInInspector] public bool open = false;
@@ -62,10 +70,10 @@ public class InventoryManager : MonoBehaviour
         switch (selectedItem.itemType)
         {
             case Items.mcDonaldsFries:
-                uiMng.DecreaseHunger(20);
+                uiMng.DecreaseHunger(40);
                 break;
             case Items.cannedFood:
-                uiMng.DecreaseHunger(90);
+                uiMng.DecreaseHunger(180);
                 break;
             case Items.water:
                 uiMng.DecreaseThirst(120);
@@ -101,23 +109,9 @@ public class InventoryManager : MonoBehaviour
         itemOptionMenu.SetActive(true);
         selectedItem = _item;
 
-        if (!_item.doggoable)
-        {
-            itemOptionMenu.transform.GetChild(1).GetComponent<Button>().interactable = false;
-        }
-        else
-        {
-            itemOptionMenu.transform.GetChild(1).GetComponent<Button>().interactable = true;
-        }
-
-        if (!_item.inspectable)
-        {
-            itemOptionMenu.transform.GetChild(2).GetComponent<Button>().interactable = false;
-        }
-        else
-        {
-            itemOptionMenu.transform.GetChild(2).GetComponent<Button>().interactable = true;
-        }
+        useButton.interactable = _item.useable;
+        doggoUseButton.interactable = _item.doggoable;
+        inspectButton.interactable = _item.inspectable;
     }
 
     public void CloseItemOptionsMenu()
