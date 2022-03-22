@@ -12,6 +12,8 @@ public class DogAI : MonoBehaviour
     public bool moving = false;
     public float speed = 1;
 
+    public bool dead = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -52,5 +54,6 @@ public class DogAI : MonoBehaviour
     {
         agent.enabled = false;
         anim.SetBool("Dead", true);
+        dead = true;
     }
 }
