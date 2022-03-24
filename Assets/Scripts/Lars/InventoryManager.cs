@@ -16,6 +16,7 @@ public class InventoryManager : MonoBehaviour
     public Transform itemHolder;
 
     public GameObject itemOptionMenu;
+    public TextMeshProUGUI itemName;
     //These are hard coded because a reference later down needs to be clear
     public Button useButton;
     public Button doggoUseButton;
@@ -107,6 +108,7 @@ public class InventoryManager : MonoBehaviour
     public void OpenItemOptionsMenuFor(InventoryItem _item)
     {
         itemOptionMenu.SetActive(true);
+        itemName.text = _item.itemName;
         selectedItem = _item;
 
         useButton.interactable = _item.useable;

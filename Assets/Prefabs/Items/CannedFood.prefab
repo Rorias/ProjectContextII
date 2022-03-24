@@ -111,9 +111,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 2
   inventorySprite: {fileID: 21300000, guid: dce28a4f131a87f49907b870a3660c6a, type: 3}
+  itemName: Canned Food
   activeTab: 0
-  inspectable: 0
+  useable: 1
   doggoable: 1
+  inspectable: 0
   pickupText: Grab Canned Food (E)
   AchievementEventCall: 
 --- !u!1001 &4510860797981735998

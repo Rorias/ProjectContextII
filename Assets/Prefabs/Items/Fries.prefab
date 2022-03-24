@@ -110,8 +110,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 0
   inventorySprite: {fileID: 21300000, guid: 5318987ede40ec140844166c8824b20d, type: 3}
+  itemName: McDonalds Fries
   activeTab: 0
-  inspectable: 0
+  useable: 1
   doggoable: 1
+  inspectable: 0
   pickupText: Grab Fries (E)
   AchievementEventCall: 

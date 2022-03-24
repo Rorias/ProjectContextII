@@ -10,6 +10,7 @@ public class InventoryItem : MonoBehaviour
 
     public InventoryManager.Items itemType;
     public Sprite inventorySprite;
+    public string itemName;
     public int activeTab;
     public bool useable;
     public bool doggoable;
