@@ -16,6 +16,8 @@ public class DogAI : MonoBehaviour
 
     public GameObject namingTrigger;
 
+    public List<GameObject> enableOnDeath = new List<GameObject>();
+
     // Start is called before the first frame update
     void Start()
     {
@@ -57,6 +59,10 @@ public class DogAI : MonoBehaviour
         agent.enabled = false;
         anim.SetBool("Dead", true);
         dead = true;
+        foreach(GameObject obj in enableOnDeath)
+        {
+            gameObject.SetActive(true);
+        }
     }
 
     public void StartNameSequence()

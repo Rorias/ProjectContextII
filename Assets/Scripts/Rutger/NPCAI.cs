@@ -21,11 +21,13 @@ public class NPCAI : MonoBehaviour
     public bool freezePlayerOnDeath = false;
     public bool dogFollowOnDeath = false;
 
+    public bool disableOnStart = false;
+
     // Start is called before the first frame update
     void Start()
     {
         health.deadCallbacks += Die;
-        StartCoroutine(SlowTick()); 
+        StartCoroutine(SlowTick());
     }
 
     // Update is called once per frame
