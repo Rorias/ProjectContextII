@@ -31,7 +31,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 8.05
+    m_StopTime: 9
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -58,14 +58,14 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 4.483333
+  - time: 5
     functionName: SpawnDialog
     data: 2:3.5:What has.. the world... become, blurgggg..
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 8.05
+  - time: 9
     functionName: SpawnDialog
     data: '2:5: Hey YOU !!, Yeah you with the beard.... it was much better in the
       past right... when we could breathe without the masks'

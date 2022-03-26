@@ -5,6 +5,7 @@ using UnityEngine;
 public class NamingUI : MonoBehaviour
 {
     public TMPro.TextMeshProUGUI dogName;
+    public GameObject dogUI;
 
     // Start is called before the first frame update
     void Start()
@@ -24,6 +25,7 @@ public class NamingUI : MonoBehaviour
         FindObjectOfType<UIManager>().UnfreezeDog();
         FindObjectOfType<DialogManager>().UnFreezePlayer();
         dogName.text = name;
+        dogUI.SetActive(true);
         gameObject.SetActive(false); 
     }
 }

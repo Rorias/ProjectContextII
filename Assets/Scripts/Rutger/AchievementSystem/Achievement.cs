@@ -9,6 +9,7 @@ public class Achievement: MonoBehaviour
     public Texture2D icon;
     public int amount = 0;
     public int needed = 1;
+    public bool completed = false;
 
     // Start is called before the first frame update
     void Start()
@@ -32,13 +33,17 @@ public class Achievement: MonoBehaviour
     {
         amount += 1;
         PlayerPrefs.SetInt("Achievement_" + eventName, amount);
-        if(amount >= needed)
+        if (!completed)
         {
-            NotificationManager.ShowNotification("Achievement "+publicName+" completed!");
-        }
-        else
-        {
-            NotificationManager.ShowNotification("Achievement " + publicName + " " + amount + "/" + needed);
+            if (amount >= needed)
+            {
+                NotificationManager.ShowNotification("Achievement " + publicName + " completed!");
+                completed = true;
+            }
+            else
+            {
+                NotificationManager.ShowNotification("Achievement " + publicName + " " + amount + "/" + needed);
+            }
         }
     }
 }
