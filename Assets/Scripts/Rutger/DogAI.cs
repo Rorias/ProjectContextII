@@ -61,7 +61,7 @@ public class DogAI : MonoBehaviour
         dead = true;
         foreach(GameObject obj in enableOnDeath)
         {
-            gameObject.SetActive(true);
+            obj.SetActive(true);
         }
     }
 

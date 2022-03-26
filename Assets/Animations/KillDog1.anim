@@ -718,7 +718,7 @@ AnimationClip:
     messageOptions: 0
   - time: 9
     functionName: SpawnDialog
-    data: 3:4:Don't even try kiddo! This won't end well for you...
+    data: 3:3:Don't even try kiddo! This won't end well for you...
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
