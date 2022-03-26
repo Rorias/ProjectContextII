@@ -32,6 +32,7 @@ public class TimeWeatherUI : MonoBehaviour
             if (ws.perl > .48f) weatherDisp.text = "Rain";
             if (ws.perl > .55f) weatherDisp.text = "Downpour";
             if (ws.perl > .6f) weatherDisp.text = "Storm";
+            if (ws.perl > .8f) weatherDisp.text = "Flood Storm";
             yield return new WaitForSeconds(2f);
         }
     }

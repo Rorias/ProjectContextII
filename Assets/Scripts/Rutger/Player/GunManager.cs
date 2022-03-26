@@ -9,6 +9,9 @@ public class GunManager : MonoBehaviour
     public GameObject hitpos;
     public Health health;
 
+    public AudioSource source;
+    public AudioClip swingSound, shootSound;
+
     public GameObject axe, shotgun;
 
     // Start is called before the first frame update
@@ -31,6 +34,7 @@ public class GunManager : MonoBehaviour
     public void BatHit()
     {
         Debug.Log("Bat Hit!");
+        source.PlayOneShot(swingSound);
         //var batpos
         foreach(Collider col in Physics.OverlapSphere(hitpos.transform.position, .5f))
         {
@@ -47,6 +51,7 @@ public class GunManager : MonoBehaviour
     public void ShotgunShoot()
     {
         Debug.Log("Bang!");
+        source.PlayOneShot(shootSound);
         testParticles.Stop();
         testParticles.Play();
     }

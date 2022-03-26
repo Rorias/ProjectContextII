@@ -34,6 +34,11 @@ public class DialogManager : MonoBehaviour
         {
             prefab.GetComponent<DialogTimer>().follow = NPCMap[int.Parse(split[0])];
         }
+        if(split.Length == 3)
+        {
+            prefab.GetComponent<TMPro.TextMeshProUGUI>().text = split[2];
+            prefab.GetComponent<DialogTimer>().timer = float.Parse(split[1]);
+        }
     }
 
     public void FreezePlayer()
@@ -65,11 +70,12 @@ public class DialogManager : MonoBehaviour
 
     public void DogStartFollow()
     {
-        FindObjectOfType<UIManager>().UnfreezeDog();
+        FindObjectOfType<UIManager>().FreezeUpdate();
         DogAI dog = FindObjectOfType<DogAI>();
         if(dog != null)
         {
             dog.target = FindObjectOfType<ThirdPersonMovement>().gameObject;
+            dog.StartNameSequence();
         }
     }
 }

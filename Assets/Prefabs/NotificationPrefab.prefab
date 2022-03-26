@@ -112,6 +112,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfc51fe864392dd43b610259179bc504, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  previousNotification: {fileID: 0}
 --- !u!114 &7664250148631995084
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -139,10 +140,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Padding:
-    m_Left: 0
-    m_Right: 0
-    m_Top: 0
-    m_Bottom: 0
+    m_Left: 5
+    m_Right: 5
+    m_Top: 5
+    m_Bottom: 5
   m_ChildAlignment: 0
   m_Spacing: 0
   m_ChildForceExpandWidth: 1
