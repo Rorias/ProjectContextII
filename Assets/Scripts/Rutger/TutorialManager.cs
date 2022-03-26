@@ -46,6 +46,8 @@ public class TutorialManager : MonoBehaviour
     {
         yield return new WaitForSeconds(7);
         NotificationManager.ShowNotification("Make sure to drink and eat to stay alive! Good luck out there! \nYou're gonna need it...");
+        yield return new WaitForSeconds(3);
+        NotificationManager.ShowNotification("Oh BTW, you can collect newspapers to find out what happend...");
     }
 
     IEnumerator FirstNotifications()
