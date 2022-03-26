@@ -22,7 +22,7 @@ public class WeatherSystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        time += Time.deltaTime * 0.02f;
+        time += Time.deltaTime * 0.01f;
         if (time > 24) time = 0;
 
         //use perlin noise to define light intensity and rain

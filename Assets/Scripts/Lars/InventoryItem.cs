@@ -38,7 +38,7 @@ public class InventoryItem : MonoBehaviour
             text.text = string.Empty;
             if(AchievementEventCall != "")
             {
-                //EventManager.TriggerEvent(AchievementEventCall);
+                EventManager.TriggerEvent(AchievementEventCall);
             }
             gameObject.SetActive(false);
         }

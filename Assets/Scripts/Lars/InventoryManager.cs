@@ -82,6 +82,7 @@ public class InventoryManager : MonoBehaviour
                 break;
             case Items.Axe:
                 FindObjectOfType<GunManager>().EquipAxe();
+                EventManager.TriggerEvent("AxeEquip");
                 destroyOnUse = false;
                 break;
             case Items.Shotgun:
