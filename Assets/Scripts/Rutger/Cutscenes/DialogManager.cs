@@ -38,11 +38,13 @@ public class DialogManager : MonoBehaviour
 
     public void FreezePlayer()
     {
+        FindObjectOfType<UIManager>().FreezeUpdate();
         FindObjectOfType<ThirdPersonMovement>().Freeze();
     }
 
     public void UnFreezePlayer()
     {
+        FindObjectOfType<UIManager>().UnFreezeUpdate();
         FindObjectOfType<ThirdPersonMovement>().UnFreeze();
     }
 
@@ -63,6 +65,7 @@ public class DialogManager : MonoBehaviour
 
     public void DogStartFollow()
     {
+        FindObjectOfType<UIManager>().UnfreezeDog();
         DogAI dog = FindObjectOfType<DogAI>();
         if(dog != null)
         {

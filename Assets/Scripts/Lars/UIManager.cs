@@ -31,6 +31,9 @@ public class UIManager : MonoBehaviour
 
     bool dogDead = false;
 
+    bool freezeUpdate = false;
+    bool freezeDogUpdate = true;
+
     private void Start()
     {
         playerWaterTimer = playerMaxWaterTime;
@@ -76,22 +79,25 @@ public class UIManager : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (playerWaterTimer > -1)
+        if (!freezeUpdate)
         {
-            playerWaterTimer -= Time.fixedDeltaTime;
-        }
+            if (playerWaterTimer > -1)
+            {
+                playerWaterTimer -= Time.fixedDeltaTime;
+            }
 
-        if (playerHungerTimer > -1)
-        {
-            playerHungerTimer -= Time.fixedDeltaTime;
-        }
+            if (playerHungerTimer > -1)
+            {
+                playerHungerTimer -= Time.fixedDeltaTime;
+            }
 
-        if (doggoHungerTimer > -1)
-        {
-            doggoHungerTimer -= Time.fixedDeltaTime;
-        }
+            if (doggoHungerTimer > -1 && !freezeDogUpdate)
+            {
+                doggoHungerTimer -= Time.fixedDeltaTime;
+            }
 
-        UpdateUI();
+            UpdateUI();
+        }
     }
 
     private void Unpause()
@@ -109,6 +115,21 @@ public class UIManager : MonoBehaviour
         pauseMenu.SetActive(true);
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
+    }
+
+    public void FreezeUpdate()
+    {
+        freezeUpdate = true;
+    }
+
+    public void UnFreezeUpdate()
+    {
+        freezeUpdate = false;
+    }
+
+    public void UnfreezeDog()
+    {
+        freezeDogUpdate = false;
     }
 
     public void DecreaseHunger(int _amount)
