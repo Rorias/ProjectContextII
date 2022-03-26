@@ -5,7 +5,7 @@ using UnityEngine;
 public class MoodleData
 {
     public Sprite moodleIcon;
-    public float moodleSeverity;
+    public Color moodleSeverity;
     public string moodleName;
     public string moodleDesc;
 }

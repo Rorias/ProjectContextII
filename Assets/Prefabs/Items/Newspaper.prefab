@@ -112,10 +112,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 1
   inventorySprite: {fileID: 21300000, guid: 2e34388b8c76c5941bf2c3aba7432e6e, type: 3}
+  itemName: Newspaper
   activeTab: 0
-  inspectable: 1
+  useable: 0
   doggoable: 0
-  pickupText: Grab Newspaper
+  inspectable: 1
+  pickupText: Grab Newspaper (E)
   AchievementEventCall: CollectNewspaper
 --- !u!114 &2448920128165024435
 MonoBehaviour:

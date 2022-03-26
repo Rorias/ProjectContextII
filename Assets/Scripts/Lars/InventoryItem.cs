@@ -10,9 +10,11 @@ public class InventoryItem : MonoBehaviour
 
     public InventoryManager.Items itemType;
     public Sprite inventorySprite;
+    public string itemName;
     public int activeTab;
-    public bool inspectable;
+    public bool useable;
     public bool doggoable;
+    public bool inspectable;
 
     private TextMeshProUGUI text;
     public string pickupText;
@@ -36,7 +38,7 @@ public class InventoryItem : MonoBehaviour
             text.text = string.Empty;
             if(AchievementEventCall != "")
             {
-                EventManager.TriggerEvent(AchievementEventCall);
+                //EventManager.TriggerEvent(AchievementEventCall);
             }
             gameObject.SetActive(false);
         }
