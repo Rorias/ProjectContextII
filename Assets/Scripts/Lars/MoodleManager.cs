@@ -25,11 +25,11 @@ public class MoodleManager : MonoBehaviour
         { Moodles.doggoStarving, new MoodleData(){ moodleName = "Starving", moodleSeverity = new Color(1, 1, 0, 1), moodleDesc = "Your dog is starting to give you suspicious glances.",} },
         { Moodles.doggoStarved, new MoodleData(){ moodleName = "Starved", moodleSeverity =  new Color(1, 0.5f, 0, 1), moodleDesc = "Your dog wants you to know it still loves you.",} },
         { Moodles.doggoDying, new MoodleData(){ moodleName = "Dying", moodleSeverity = new Color(1, 0, 0, 1), moodleDesc = "You're heartless.",} },
-        { Moodles.thirsty, new MoodleData(){ moodleName = "Thirsty", moodleSeverity = new Color(1, 1, 1, 1), moodleDesc = "Y",} },
-        { Moodles.droughty, new MoodleData(){ moodleName = "Droughty", moodleSeverity = new Color(1, 1, 0.5f, 1), moodleDesc = "Y",} },
-        { Moodles.driedOut, new MoodleData(){ moodleName = "Dried Out", moodleSeverity = new Color(1, 1, 0, 1), moodleDesc = "Y",} },
-        { Moodles.dehydrated, new MoodleData(){ moodleName = "Dehydrated", moodleSeverity =  new Color(1, 0.5f, 0, 1), moodleDesc = "Y",} },
-        { Moodles.thirstDying, new MoodleData(){ moodleName = "Dying", moodleSeverity = new Color(1, 0, 0, 1), moodleDesc = "Y",} },
+        { Moodles.thirsty, new MoodleData(){ moodleName = "Thirsty", moodleSeverity = new Color(1, 1, 1, 1), moodleDesc = "You could do with a drop of water.",} },
+        { Moodles.droughty, new MoodleData(){ moodleName = "Droughty", moodleSeverity = new Color(1, 1, 0.5f, 1), moodleDesc = "You could really use a drink right now.",} },
+        { Moodles.driedOut, new MoodleData(){ moodleName = "Dried Out", moodleSeverity = new Color(1, 1, 0, 1), moodleDesc = "You feel like swallowing hurts.",} },
+        { Moodles.dehydrated, new MoodleData(){ moodleName = "Dehydrated", moodleSeverity =  new Color(1, 0.5f, 0, 1), moodleDesc = "You have no spit left to swallow.",} },
+        { Moodles.thirstDying, new MoodleData(){ moodleName = "Dying", moodleSeverity = new Color(1, 0, 0, 1), moodleDesc = "Everything is starting to look really blurry.",} },
     };
 
     private List<GameObject> activeMoodles = new List<GameObject>();
@@ -37,6 +37,10 @@ public class MoodleManager : MonoBehaviour
     public GameObject prefabMoodleTM;
 
     public Transform moodleContent;
+    public GameObject moodleTip;
+    public TextMeshProUGUI moodleTitle;
+    public TextMeshProUGUI moodleDesc;
+    public Moodles activeMoodle;
 
     public Sprite hungerMoodleSprite;
     public Sprite doggoHungerMoodleSprite;
@@ -45,6 +49,7 @@ public class MoodleManager : MonoBehaviour
     private void Awake()
     {
         InitializeMoodleSprites();
+        moodleTip.SetActive(false);
     }
 
     private void InitializeMoodleSprites()
@@ -80,6 +85,9 @@ public class MoodleManager : MonoBehaviour
 
         GameObject moodle = Instantiate(prefabMoodleTM, moodleContent);
         moodle.GetComponent<Image>().sprite = moodles[_moodle].moodleIcon;
+        moodle.GetComponent<Moodle>().moodleMng = this;
+        moodle.GetComponent<Moodle>().moodle = _moodle;
+        moodle.GetComponent<Moodle>().toolTip = moodleTip;
         activeMoodles.Add(moodle);
         SetMoodle(_moodle);
     }
@@ -91,8 +99,7 @@ public class MoodleManager : MonoBehaviour
             if (activeMoodles[i].GetComponent<Image>().sprite == moodles[_moodle].moodleIcon)
             {
                 activeMoodles[i].GetComponent<Image>().color = moodles[_moodle].moodleSeverity;
-                activeMoodles[i].GetComponent<Moodle>().title.GetComponent<TextMeshProUGUI>().text = moodles[_moodle].moodleName;
-                activeMoodles[i].GetComponent<Moodle>().desc.GetComponent<TextMeshProUGUI>().text = moodles[_moodle].moodleDesc;
+                activeMoodles[i].GetComponent<Moodle>().moodle = _moodle;
             }
         }
     }
@@ -108,5 +115,11 @@ public class MoodleManager : MonoBehaviour
                 break;
             }
         }
+    }
+
+    public void SetMoodleTip(Moodles _moodle)
+    {
+        moodleTitle.text = moodles[_moodle].moodleName;
+        moodleDesc.text = moodles[_moodle].moodleDesc;
     }
 }
