@@ -74,7 +74,7 @@ public class DialogManager : MonoBehaviour
 
     public void KillDog(int npc)
     {
-        FindObjectOfType<DogAI>().transform.position = NPCMap[npc].transform.position;
+        FindObjectOfType<DogAI>().transform.position = NPCMap[npc].transform.position + new Vector3(0,-1,0);
         FindObjectOfType<UIManager>().doggoHealth.fillAmount = 0;
         FindObjectOfType<DogAI>().Die();
     }

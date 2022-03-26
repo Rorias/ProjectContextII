@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -24,7 +25,13 @@ public class CutsceneTrigger : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             cm.PlayClip(clip);
-            EventManager.TriggerEvent("DialogOpen");
+            try
+            {
+                EventManager.TriggerEvent("DialogOpen");
+            }catch(Exception e)
+            {
+
+            }
             gameObject.SetActive(false);
         }
     }
