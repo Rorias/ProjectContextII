@@ -10,7 +10,7 @@ public class InventoryManager : MonoBehaviour
 {
     public UIManager uiMng;
 
-    public enum Items { mcDonaldsFries, newspaperClipping, cannedFood, water };
+    public enum Items { mcDonaldsFries, newspaperClipping, cannedFood, water, Axe, Shotgun };
 
     public GameObject prefabInvItem;
     public Transform itemHolder;
@@ -68,6 +68,7 @@ public class InventoryManager : MonoBehaviour
 
     public void UseItemFromInventory()
     {
+        bool destroyOnUse = true;
         switch (selectedItem.itemType)
         {
             case Items.mcDonaldsFries:
@@ -79,11 +80,20 @@ public class InventoryManager : MonoBehaviour
             case Items.water:
                 uiMng.DecreaseThirst(120);
                 break;
+            case Items.Axe:
+                FindObjectOfType<GunManager>().EquipAxe();
+                destroyOnUse = false;
+                break;
+            case Items.Shotgun:
+                FindObjectOfType<GunManager>().EquipShotgun();
+                destroyOnUse = false;
+                break;
             default:
                 break;
         }
 
-        RemoveItemFromInventory();
+        if(destroyOnUse)
+            RemoveItemFromInventory();
         CloseItemOptionsMenu();
     }
 

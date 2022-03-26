@@ -230,7 +230,7 @@ MonoBehaviour:
     m_ActionName: Player/Jump[/Keyboard/space]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 3773454529125211718}
         m_TargetAssemblyTypeName: ThirdPersonMovement, Assembly-CSharp
         m_MethodName: Sprint
         m_Mode: 0
@@ -386,6 +386,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: cc89739c5f3dc954994723ce86358043, type: 3}
   - {fileID: 8300000, guid: 13432c5d98f10c1489a73ce13bb3bb38, type: 3}
   - {fileID: 8300000, guid: 13b76072a98c1de46bf72ccf1bc9f72f, type: 3}
+  health: {fileID: 0}
+  deadUI: {fileID: 0}
   turnSmoothSpeed: 0.1
   normalSpeed: 6
   crouchSpeed: 3
