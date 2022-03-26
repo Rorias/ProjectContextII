@@ -24,6 +24,8 @@ public class InventoryManager : MonoBehaviour
     public Button dropButton;
     public Button cancelButton;
 
+    public Button closeAll;
+
 
     public GameObject inspectMenu;
 
@@ -122,6 +124,8 @@ public class InventoryManager : MonoBehaviour
         itemName.text = _item.itemName;
         selectedItem = _item;
 
+        closeAll.gameObject.SetActive(true);
+
         useButton.interactable = _item.useable;
         doggoUseButton.interactable = _item.doggoable;
         inspectButton.interactable = _item.inspectable;
@@ -131,17 +135,27 @@ public class InventoryManager : MonoBehaviour
     {
         itemOptionMenu.SetActive(false);
         selectedItem = null;
+        closeAll.gameObject.SetActive(false);
     }
 
     public void InspectItemInInventory()
     {
+        closeAll.gameObject.SetActive(true);
         inspectMenu.SetActive(true);
         inspectMenu.GetComponentInChildren<TextMeshProUGUI>().text = selectedItem.GetComponent<InspectItem>().inspectText;
+    }
+
+    public void CloseAllSubMenus()
+    {
+        closeAll.gameObject.SetActive(false);
+        CloseInspectMenu();
+        CloseItemOptionsMenu();
     }
 
     public void CloseInspectMenu()
     {
         inspectMenu.SetActive(false);
+        closeAll.gameObject.SetActive(false);
     }
 
     public void SetActiveInventoryTab(int _tab)

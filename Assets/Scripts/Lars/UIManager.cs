@@ -42,6 +42,7 @@ public class UIManager : MonoBehaviour
 
         invMng.CloseInventory();
         StartCoroutine(ITurnOffDelayed());
+        
     }
 
     private IEnumerator ITurnOffDelayed()
@@ -113,8 +114,8 @@ public class UIManager : MonoBehaviour
         paused = true;
         Time.timeScale = 0;
         pauseMenu.SetActive(true);
-        Cursor.visible = true;
-        Cursor.lockState = CursorLockMode.None;
+        //Cursor.visible = true;
+        //Cursor.lockState = CursorLockMode.None;
     }
 
     public void FreezeUpdate()
