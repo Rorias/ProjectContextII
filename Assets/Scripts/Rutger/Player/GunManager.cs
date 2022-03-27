@@ -9,6 +9,11 @@ public class GunManager : MonoBehaviour
     public GameObject hitpos;
     public Health health;
 
+    public AudioSource source;
+    public AudioClip swingSound, shootSound;
+
+    public GameObject axe, shotgun;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,6 +34,7 @@ public class GunManager : MonoBehaviour
     public void BatHit()
     {
         Debug.Log("Bat Hit!");
+        source.PlayOneShot(swingSound);
         //var batpos
         foreach(Collider col in Physics.OverlapSphere(hitpos.transform.position, .5f))
         {
@@ -45,7 +51,24 @@ public class GunManager : MonoBehaviour
     public void ShotgunShoot()
     {
         Debug.Log("Bang!");
+        source.PlayOneShot(shootSound);
         testParticles.Stop();
         testParticles.Play();
+    }
+
+    public void EquipAxe()
+    {
+        anim.SetLayerWeight(2, 1);
+        anim.SetLayerWeight(1, 0);
+        shotgun.SetActive(false);
+        axe.SetActive(true);
+    }
+
+    public void EquipShotgun()
+    {
+        anim.SetLayerWeight(2, 0);
+        anim.SetLayerWeight(1, 1);
+        shotgun.SetActive(true);
+        axe.SetActive(false);
     }
 }

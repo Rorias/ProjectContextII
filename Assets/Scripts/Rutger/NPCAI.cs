@@ -18,11 +18,16 @@ public class NPCAI : MonoBehaviour
     public float speed = 1;
     public bool agro = false;
 
+    public bool freezePlayerOnDeath = false;
+    public bool dogFollowOnDeath = false;
+
+    public bool disableOnStart = false;
+
     // Start is called before the first frame update
     void Start()
     {
         health.deadCallbacks += Die;
-        StartCoroutine(SlowTick()); 
+        StartCoroutine(SlowTick());
     }
 
     // Update is called once per frame
@@ -30,7 +35,7 @@ public class NPCAI : MonoBehaviour
     {
         if (target != null)
         {
-            if ((transform.position - target.transform.position).magnitude < 1.5f)
+            if ((transform.position - target.transform.position).magnitude < 2f)
             {
                 agent.speed = 0;
                 moving = false;
@@ -54,6 +59,10 @@ public class NPCAI : MonoBehaviour
 
     void Die()
     {
+        if (freezePlayerOnDeath)
+            FindObjectOfType<ThirdPersonMovement>().Freeze();
+        if (dogFollowOnDeath)
+            FindObjectOfType<DialogManager>().DogStartFollow();
         this.enabled = false;
         agent.enabled = false;
     }

@@ -440,7 +440,16 @@ public class ThirdPersonMovement : MonoBehaviour
 
     public void Sprint(InputAction.CallbackContext context)
     {
-        
+        if (context.started)
+        {
+            Debug.Log("Started");
+            SetMovePenalty(1.5f);
+        }
+        if (context.canceled)
+        {
+            Debug.Log("Cancelled");
+            SetMovePenalty(1.0f);
+        }
     }
 
     public void Crouch(InputAction.CallbackContext context)

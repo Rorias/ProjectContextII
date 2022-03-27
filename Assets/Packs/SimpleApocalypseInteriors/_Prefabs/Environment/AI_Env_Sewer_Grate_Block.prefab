@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 435490}
   - component: {fileID: 3341334}
   - component: {fileID: 2355476}
+  - component: {fileID: 3178694597001896118}
   m_Layer: 0
   m_Name: AI_Env_Sewer_Grate_Block
   m_TagString: Untagged
@@ -81,3 +82,16 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &3178694597001896118
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 117296}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4.6376653, y: 4.7405624, z: 0.13923037}
+  m_Center: {x: -2.5017393, y: 2.0441828, z: -0.13657638}

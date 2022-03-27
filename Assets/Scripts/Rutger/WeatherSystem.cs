@@ -13,16 +13,21 @@ public class WeatherSystem : MonoBehaviour
 
     public Vector2 pos = new Vector2();
 
+    public GameObject water;
+    public float maxHeightRaise = 5f;
+    Vector3 waterStart;
+
     // Start is called before the first frame update
     void Start()
     {
+        waterStart = water.transform.position;
         pos.x = Random.Range(0, 100f);
     }
 
     // Update is called once per frame
     void Update()
     {
-        time += Time.deltaTime * 0.02f;
+        time += Time.deltaTime * 0.01f;
         if (time > 24) time = 0;
 
         //use perlin noise to define light intensity and rain
@@ -33,5 +38,7 @@ public class WeatherSystem : MonoBehaviour
         sun.intensity = 1.5f-perl-(darkness/8);
         rs.RainIntensity = (perl - 0.4f) * 4f;
         rs.WindSoundVolumeModifier = (perl - 0.4f)*2f;
+
+        water.transform.position = waterStart + new Vector3(0, maxHeightRaise*perl, 0);
     }
 }

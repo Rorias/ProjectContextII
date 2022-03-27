@@ -6,11 +6,13 @@ public class CamFollow : MonoBehaviour
 {
     GameObject player;
     public GameObject objToFollow;
-    public float speed = 2f;
+    //public float speed = 2f;
     Vector3 target;
     Vector3 currentPos;
     Vector3 offset;
     Camera cam;
+
+    public Cinemachine.CinemachineVirtualCamera vcam;
 
     // Start is called before the first frame update
     void Start()
@@ -23,7 +25,7 @@ public class CamFollow : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        target = player.transform.position + offset;
+        //target = player.transform.position + offset;
         /*if(objToFollow != null)
         {
             target = objToFollow.transform.position + offset;
@@ -33,8 +35,20 @@ public class CamFollow : MonoBehaviour
         {
             speed = 2;
         }*/
-        transform.position -= (transform.position - target) / speed;
+        //transform.position -= (transform.position - target) / speed;
         //currentPos = transform.position;
+    }
+
+    public void NewFollow(GameObject obj)
+    {
+        if(obj != null)
+        {
+            vcam.Follow = obj.transform;
+        }
+        else
+        {
+            vcam.Follow = player.transform.GetChild(0);
+        }
     }
 
     private void Update()
@@ -42,7 +56,7 @@ public class CamFollow : MonoBehaviour
         if (Input.mouseScrollDelta.y != 0)
         {
             //Debug.Log("scroll " + Input.mouseScrollDelta);
-            cam.orthographicSize = Mathf.Clamp(cam.orthographicSize - Input.mouseScrollDelta.y * 0.5f, 3, 10);
+            vcam.m_Lens.OrthographicSize = Mathf.Clamp(vcam.m_Lens.OrthographicSize - Input.mouseScrollDelta.y * 0.5f, 3, 10);
         }
     }
 }

@@ -12,6 +12,12 @@ public class DogAI : MonoBehaviour
     public bool moving = false;
     public float speed = 1;
 
+    public bool dead = false;
+
+    public GameObject namingTrigger;
+
+    public List<GameObject> enableOnDeath = new List<GameObject>();
+
     // Start is called before the first frame update
     void Start()
     {
@@ -46,5 +52,22 @@ public class DogAI : MonoBehaviour
                 agent.SetDestination(target.transform.position);
             yield return new WaitForSeconds(1);
         }
+    }
+
+    public void Die()
+    {
+        agent.enabled = false;
+        anim.SetBool("Dead", true);
+        dead = true;
+        foreach(GameObject obj in enableOnDeath)
+        {
+            obj.SetActive(true);
+        }
+    }
+
+    public void StartNameSequence()
+    {
+        FindObjectOfType<CamFollow>().NewFollow(gameObject);
+        namingTrigger.SetActive(true);
     }
 }

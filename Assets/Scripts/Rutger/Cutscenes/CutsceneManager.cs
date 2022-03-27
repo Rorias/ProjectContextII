@@ -42,6 +42,8 @@ public class CutsceneManager : MonoBehaviour
 
         var clipPlayable = AnimationClipPlayable.Create(playableGraph, clip);
 
+        clipPlayable.SetSpeed(1f);
+
         // Connect the Playable to an output
 
         playableOutput.SetSourcePlayable(clipPlayable);

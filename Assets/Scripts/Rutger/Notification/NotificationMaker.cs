@@ -7,6 +7,8 @@ public class NotificationMaker : MonoBehaviour
     public GameObject notificationPrefab;
     public GameObject canvas;
 
+    GameObject lastNotification;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +24,8 @@ public class NotificationMaker : MonoBehaviour
     public void ShowNotification(string text)
     {
         GameObject obj = Instantiate(notificationPrefab, canvas.transform);
+        obj.GetComponent<Notification>().previousNotification = lastNotification;
         obj.transform.GetChild(0).GetComponent<TMPro.TextMeshProUGUI>().text = text;
+        lastNotification = obj;
     }
 }

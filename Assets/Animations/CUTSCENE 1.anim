@@ -31,7 +31,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 20.266666
+    m_StopTime: 10.583333
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -60,40 +60,40 @@ AnimationClip:
     messageOptions: 0
   - time: 0.016666668
     functionName: SpawnDialog
-    data: 1:STOP BARKING, U DUMB DOG.
+    data: 1:3:STOP BARKING, U DUMB DOG.
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 5.983333
+  - time: 3.15
     functionName: SpawnDialog
-    data: 0:What the FUCK are you doing?
+    data: 0:3:What the FUCK are you doing?
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 11.05
+  - time: 6.4666667
     functionName: SpawnDialog
-    data: 1:WHO ARE YOU??
+    data: 1:3:WHO ARE YOU??
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 16.983334
+  - time: 10.083333
     functionName: SpawnDialog
-    data: 1:I'M GONNA KILL YOU!
+    data: 1:3:I'M GONNA KILL YOU!
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 20.05
+  - time: 10.516666
     functionName: UnFreezePlayer
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 20.266666
+  - time: 10.583333
     functionName: NPCAgro
     data: 
     objectReferenceParameter: {fileID: 0}
