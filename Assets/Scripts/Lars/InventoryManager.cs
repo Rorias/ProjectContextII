@@ -10,7 +10,7 @@ public class InventoryManager : MonoBehaviour
 {
     public UIManager uiMng;
 
-    public enum Items { mcDonaldsFries, newspaperClipping, cannedFood, water, Axe, Shotgun };
+    public enum Items { mcDonaldsFries, newspaperClipping, cannedFood, water, Axe, Shotgun, dogBone };
 
     public GameObject prefabInvItem;
     public Transform itemHolder;
@@ -108,6 +108,9 @@ public class InventoryManager : MonoBehaviour
                 break;
             case Items.cannedFood:
                 uiMng.DecreaseDoggoHunger(90);
+                break;
+            case Items.dogBone:
+                uiMng.DecreaseDoggoHunger(180);
                 break;
             default:
                 break;

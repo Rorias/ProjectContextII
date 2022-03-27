@@ -114,7 +114,7 @@ MonoBehaviour:
   itemName: Water Bottle
   activeTab: 0
   useable: 1
-  doggoable: 1
+  doggoable: 0
   inspectable: 0
   pickupText: Grab Water Bottle (E)
   AchievementEventCall: 

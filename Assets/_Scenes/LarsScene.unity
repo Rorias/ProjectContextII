@@ -843,10 +843,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8687152338635012735, guid: 1d109f254f82b364dafe9af3af3a5a03, type: 3}
-      propertyPath: moodleMng
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 8687152338635012735, guid: 1d109f254f82b364dafe9af3af3a5a03, type: 3}
       propertyPath: healthHandler
       value: 
       objectReference: {fileID: 448114739}
