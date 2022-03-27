@@ -36,7 +36,8 @@ public class MoodleManager : MonoBehaviour
 
     public GameObject prefabMoodleTM;
 
-    public Transform moodleContent;
+    public Transform playerMoodleContent;
+    public Transform doggoMoodleContent;
     public GameObject moodleTip;
     public TextMeshProUGUI moodleTitle;
     public TextMeshProUGUI moodleDesc;
@@ -83,7 +84,7 @@ public class MoodleManager : MonoBehaviour
             }
         }
 
-        GameObject moodle = Instantiate(prefabMoodleTM, moodleContent);
+        GameObject moodle = Instantiate(prefabMoodleTM, playerMoodleContent);
         moodle.GetComponent<Image>().sprite = moodles[_moodle].moodleIcon;
         moodle.GetComponent<Moodle>().moodleMng = this;
         moodle.GetComponent<Moodle>().moodle = _moodle;
@@ -105,6 +106,50 @@ public class MoodleManager : MonoBehaviour
     }
 
     public void RemoveMoodle(Moodles _moodle)
+    {
+        for (int i = 0; i < activeMoodles.Count; i++)
+        {
+            if (activeMoodles[i].GetComponent<Image>().sprite == moodles[_moodle].moodleIcon)
+            {
+                Destroy(activeMoodles[i]);
+                activeMoodles.RemoveAt(i);
+                break;
+            }
+        }
+    }
+
+    public void CreateDogMoodle(Moodles _moodle)
+    {
+        for (int i = 0; i < activeMoodles.Count; i++)
+        {
+            if (activeMoodles[i].GetComponent<Image>().sprite == moodles[_moodle].moodleIcon)
+            {
+                return;
+            }
+        }
+
+        GameObject moodle = Instantiate(prefabMoodleTM, doggoMoodleContent);
+        moodle.GetComponent<Image>().sprite = moodles[_moodle].moodleIcon;
+        moodle.GetComponent<Moodle>().moodleMng = this;
+        moodle.GetComponent<Moodle>().moodle = _moodle;
+        moodle.GetComponent<Moodle>().toolTip = moodleTip;
+        activeMoodles.Add(moodle);
+        SetMoodle(_moodle);
+    }
+
+    public void SetDogMoodle(Moodles _moodle)
+    {
+        for (int i = 0; i < activeMoodles.Count; i++)
+        {
+            if (activeMoodles[i].GetComponent<Image>().sprite == moodles[_moodle].moodleIcon)
+            {
+                activeMoodles[i].GetComponent<Image>().color = moodles[_moodle].moodleSeverity;
+                activeMoodles[i].GetComponent<Moodle>().moodle = _moodle;
+            }
+        }
+    }
+
+    public void RemoveDogMoodle(Moodles _moodle)
     {
         for (int i = 0; i < activeMoodles.Count; i++)
         {

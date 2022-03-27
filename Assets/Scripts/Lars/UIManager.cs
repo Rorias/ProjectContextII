@@ -29,10 +29,8 @@ public class UIManager : MonoBehaviour
 
     private bool paused = false;
 
-    bool dogDead = false;
-
-    bool freezeUpdate = false;
-    bool freezeDogUpdate = true;
+    private bool freezeUpdate = false;
+    [HideInInspector] public bool freezeDogUpdate { get; private set; } = true;
 
     private void Start()
     {
@@ -192,31 +190,6 @@ public class UIManager : MonoBehaviour
             moodleMng.RemoveMoodle(MoodleManager.Moodles.peckish);
         }
 
-        if (doggoHungerTimer < 0)
-        {
-            moodleMng.SetMoodle(MoodleManager.Moodles.doggoDying);
-        }
-        else if (doggoHungerTimer < 60)
-        {
-            moodleMng.SetMoodle(MoodleManager.Moodles.doggoStarved);
-        }
-        else if (doggoHungerTimer < 120)
-        {
-            moodleMng.SetMoodle(MoodleManager.Moodles.doggoStarving);
-        }
-        else if (doggoHungerTimer < 180)
-        {
-            moodleMng.SetMoodle(MoodleManager.Moodles.doggoHungry);
-        }
-        else if (doggoHungerTimer < 240)
-        {
-            moodleMng.CreateMoodle(MoodleManager.Moodles.doggoPeckish);
-        }
-        else
-        {
-            moodleMng.RemoveMoodle(MoodleManager.Moodles.doggoPeckish);
-        }
-
         if (playerWaterTimer < 0)
         {
             moodleMng.SetMoodle(MoodleManager.Moodles.thirstDying);
@@ -240,6 +213,31 @@ public class UIManager : MonoBehaviour
         else
         {
             moodleMng.RemoveMoodle(MoodleManager.Moodles.thirsty);
+        }
+
+        if (doggoHungerTimer < 0)
+        {
+            moodleMng.SetDogMoodle(MoodleManager.Moodles.doggoDying);
+        }
+        else if (doggoHungerTimer < 60)
+        {
+            moodleMng.SetDogMoodle(MoodleManager.Moodles.doggoStarved);
+        }
+        else if (doggoHungerTimer < 120)
+        {
+            moodleMng.SetDogMoodle(MoodleManager.Moodles.doggoStarving);
+        }
+        else if (doggoHungerTimer < 180)
+        {
+            moodleMng.SetDogMoodle(MoodleManager.Moodles.doggoHungry);
+        }
+        else if (doggoHungerTimer < 240)
+        {
+            moodleMng.CreateDogMoodle(MoodleManager.Moodles.doggoPeckish);
+        }
+        else
+        {
+            moodleMng.RemoveDogMoodle(MoodleManager.Moodles.doggoPeckish);
         }
     }
 }

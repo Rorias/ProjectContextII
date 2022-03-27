@@ -95,8 +95,7 @@ public class InventoryManager : MonoBehaviour
                 break;
         }
 
-        if(destroyOnUse)
-            RemoveItemFromInventory();
+        if (destroyOnUse) { RemoveItemFromInventory(); }
         CloseItemOptionsMenu();
     }
 
@@ -127,7 +126,7 @@ public class InventoryManager : MonoBehaviour
         closeAll.gameObject.SetActive(true);
 
         useButton.interactable = _item.useable;
-        doggoUseButton.interactable = _item.doggoable;
+        doggoUseButton.interactable = (FindObjectOfType<DogAI>().dead || uiMng.freezeDogUpdate) ? false : _item.doggoable;
         inspectButton.interactable = _item.inspectable;
     }
 
