@@ -78,6 +78,7 @@ public class NPCAI : MonoBehaviour
                 col.GetComponent<Health>().Damage(10);
                 knifeBlood.Stop();
                 knifeBlood.Play();
+                break;
             }
         }
     }

@@ -14,6 +14,8 @@ public class GunManager : MonoBehaviour
 
     public GameObject axe, shotgun;
 
+    bool shotgunTutorial = true;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -70,5 +72,10 @@ public class GunManager : MonoBehaviour
         anim.SetLayerWeight(1, 1);
         shotgun.SetActive(true);
         axe.SetActive(false);
+        if (shotgunTutorial)
+        {
+            FindObjectOfType<TutorialManager>().GotShotgun();
+            shotgunTutorial = false;
+        }
     }
 }
