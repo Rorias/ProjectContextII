@@ -160,14 +160,11 @@ public class ThirdPersonMovement : MonoBehaviour
         MouseRot();
     }
 
-    void HostLeft()
-    {
-        enabled = false;
-    }
-
     private void MouseRot()
     {
-        Vector2 mousePos = new Vector2((Input.mousePosition.x / Screen.width) - 0.5f, (Input.mousePosition.y / Screen.height) - 0.5f);
+        Vector3 screenPos = Camera.main.WorldToScreenPoint(transform.position);
+        //Vector2 mousePos = new Vector2((Input.mousePosition.x / Screen.width) - 0.5f, (Input.mousePosition.y / Screen.height) - 0.5f);
+        Vector2 mousePos = Input.mousePosition - screenPos;
         playerAngle = Vector2.SignedAngle(mousePos, new Vector2(-1, 1));
         //Debug.Log(playerAngle);
         transform.GetChild(0).rotation = Quaternion.Euler(0f, playerAngle, 0f);
