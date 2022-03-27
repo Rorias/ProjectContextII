@@ -19,6 +19,8 @@ public class AchievementUIObject : MonoBehaviour
         icon.texture = achievement.icon;
         achievementName.text = achievement.publicName;
         progress.text = achievement.amount.ToString() + "/" + achievement.needed.ToString();
+        if (achievement.isFinished()) done.color = doneCol;
+        else done.color = ndoneCol;
     }
 
     // Update is called once per frame

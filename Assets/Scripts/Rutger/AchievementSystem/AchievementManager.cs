@@ -15,10 +15,10 @@ public class AchievementManager : MonoBehaviour
         {
             EventManager.StartListening(ach.eventName, ach.eventCallback);
         }
-        ShowAchievements();
+        //ShowAchievements();
     }
 
-    void ShowAchievements()
+    public void ShowAchievements()
     {
         foreach (Achievement ach in achievements)
         {

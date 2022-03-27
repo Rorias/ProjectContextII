@@ -25,13 +25,16 @@ public class Achievement: MonoBehaviour
 
     public bool isFinished()
     {
-        if (amount >= needed) return true;
-        return false;
+        return completed;
     }
 
     public void eventCallback()
     {
         amount += 1;
+        if(amount > needed)
+        {
+            amount = needed;
+        }
         PlayerPrefs.SetInt("Achievement_" + eventName, amount);
         if (!completed)
         {
