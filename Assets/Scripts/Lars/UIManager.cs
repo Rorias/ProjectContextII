@@ -42,7 +42,6 @@ public class UIManager : MonoBehaviour
 
         invMng.CloseInventory();
         StartCoroutine(ITurnOffDelayed());
-        
     }
 
     private IEnumerator ITurnOffDelayed()
@@ -151,7 +150,7 @@ public class UIManager : MonoBehaviour
 
     public void UpdateUI()
     {
-        playerHealth.fillAmount = ((float)healthHandler.GetValue() / healthHandler.maxHealth);// - lostHealth;
+        playerHealth.fillAmount = (float)healthHandler.GetValue() / healthHandler.maxHealth;
 
         if (playerHungerTimer <= 0 || playerWaterTimer <= 0)
         {
