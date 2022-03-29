@@ -47,7 +47,7 @@ public class TutorialManager : MonoBehaviour
         yield return new WaitForSeconds(7);
         NotificationManager.ShowNotification("Make sure to drink and eat to stay alive! Good luck out there! \nYou're gonna need it...");
         yield return new WaitForSeconds(3);
-        NotificationManager.ShowNotification("Oh BTW, collect newspapers to find out what happend...");
+        NotificationManager.ShowNotification("Oh BTW, collect newspapers to find out what happened...");
     }
 
     IEnumerator FirstNotifications()
@@ -55,7 +55,7 @@ public class TutorialManager : MonoBehaviour
         yield return new WaitForSeconds(2);
         NotificationManager.ShowNotification("Hey there! Use WASD to walk and the mouse to look around!");
         yield return new WaitForSeconds(7);
-        NotificationManager.ShowNotification("In the top left you can see your health and thrist.\nIn the top right you can see your status.");
+        NotificationManager.ShowNotification("In the top left you can see your health and thirst.\nIn the top right you can see your status.");
         yield return new WaitForSeconds(7);
         NotificationManager.ShowNotification("Pick up that water and that Axe over there.");
     }

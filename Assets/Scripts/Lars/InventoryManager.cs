@@ -111,6 +111,7 @@ public class InventoryManager : MonoBehaviour
                 break;
             case Items.dogBone:
                 uiMng.DecreaseDoggoHunger(180);
+                FindObjectOfType<DogAI>().IncreaseDogLoveLevel();
                 break;
             default:
                 break;
