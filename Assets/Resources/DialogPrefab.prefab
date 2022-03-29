@@ -68,8 +68,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Some dialog...
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 1b0b06ebf82ae5648a278e34d110da16, type: 2}
-  m_sharedMaterial: {fileID: 1738704863174028369, guid: 1b0b06ebf82ae5648a278e34d110da16, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 374159351f6e26f45920cdf816bb84f3, type: 2}
+  m_sharedMaterial: {fileID: -9176035381482803098, guid: 374159351f6e26f45920cdf816bb84f3, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
