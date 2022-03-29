@@ -48,6 +48,12 @@ AudioMixerController:
   m_EnableSuspend: 1
   m_UpdateMode: 0
   m_ExposedParameters:
+  - guid: c7fa7b65272d0dd4881ab67de09da133
+    name: AmbientVolume
+  - guid: f9ef1573be31474429b6f499f1b5c92c
+    name: MusicVolume
+  - guid: 7967dc90eb1e4f645900c36e06ce94e5
+    name: SFXVolume
   - guid: d4649c95ec2ed4c4d832085740c11dfb
     name: LowpassWet
   m_AudioMixerGroupViews:

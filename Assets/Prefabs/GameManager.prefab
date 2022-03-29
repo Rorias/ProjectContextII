@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a750ca95a211de40b7c6bada76f472a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mixer: {fileID: 24100000, guid: 50f8900b01a2e8340a890463a3131817, type: 2}
   fullScreen: 1
   vsync: 0
   fpsLimit: 120

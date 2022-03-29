@@ -8,7 +8,7 @@ public class MainMenu : MonoBehaviour
     public MainMenuItem mainMenu;
     private List<MainMenuItem> menus = new List<MainMenuItem>();
 
-    private MainMenuItem currentMenu;
+    [HideInInspector] public MainMenuItem currentMenu;
 
     private void Start()
     {

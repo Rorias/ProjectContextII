@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Globalization;
 
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class GameManager : MonoBehaviour
 {
@@ -31,6 +32,8 @@ public class GameManager : MonoBehaviour
     #endregion
 
     private static readonly CultureInfo CultUS = new CultureInfo("en-US");
+
+    public AudioMixer mixer;
 
     [HideInInspector] public IniFile ini { get; private set; }
 
@@ -94,6 +97,9 @@ public class GameManager : MonoBehaviour
         }
 
         AudioListener.volume = masterVolume;
+        mixer.SetFloat("SFXvolume", Mathf.Log10(soundVolume) * 20);
+        mixer.SetFloat("AmbientVolume", Mathf.Log10(soundVolume) * 20);
+        mixer.SetFloat("MusicVolume", Mathf.Log10(musicVolume) * 20);
     }
 
     public void SaveGameSettings()

@@ -102,6 +102,8 @@ public class UIManager : MonoBehaviour
     {
         paused = false;
         Time.timeScale = 1;
+        FindObjectOfType<MainMenu>().currentMenu.gameObject.SetActive(false);
+        FindObjectOfType<MainMenu>().currentMenu = pauseMenu.GetComponent<MainMenuItem>();
         pauseMenu.SetActive(false);
         Cursor.visible = false;
     }
@@ -110,6 +112,8 @@ public class UIManager : MonoBehaviour
     {
         paused = true;
         Time.timeScale = 0;
+        FindObjectOfType<MainMenu>().currentMenu.gameObject.SetActive(false);
+        FindObjectOfType<MainMenu>().currentMenu = pauseMenu.GetComponent<MainMenuItem>();
         pauseMenu.SetActive(true);
         //Cursor.visible = true;
         //Cursor.lockState = CursorLockMode.None;
@@ -158,7 +162,7 @@ public class UIManager : MonoBehaviour
         if (doggoHungerTimer <= 0)
         {
             doggoHealth.fillAmount -= 0.001f;
-            if(doggoHealth.fillAmount <= 0)
+            if (doggoHealth.fillAmount <= 0)
             {
                 Debug.Log("Doggo Dead!");
                 FindObjectOfType<DogAI>().Die();

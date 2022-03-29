@@ -106,7 +106,7 @@ public class DogAI : MonoBehaviour
         {
             for (int i = 0; i < availableMapItems.Count; i++)
             {
-                if (availableMapItems[i].activeSelf)
+                if (availableMapItems[i] != null && availableMapItems[i].activeSelf)
                 {
                     if (Vector3.Distance(transform.position, availableMapItems[i].transform.position) < minDistance)
                     {
